@@ -3,6 +3,7 @@ import wallet from "../dev-wallet.json"
 
 // We're going to import our keypair from the wallet file
 const keypair = Keypair.fromSecretKey(new Uint8Array(wallet));
+console.log(keypair.publicKey)
 
 //Create a Solana devnet connection to claim 2 devnet SOL tokens
 const connection = new Connection("https://api.devnet.solana.com");
