@@ -12,7 +12,7 @@ pub struct InitializeUser<'info> {
     #[account(
         init,
         seeds = [USER_TAG, authority.key().as_ref()],
-        bump,
+        bump, 
         payer = authority,
         space = 32 + 1 + 1 + 8
     )]
