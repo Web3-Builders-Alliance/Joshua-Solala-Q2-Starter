@@ -9,7 +9,7 @@ const commitment: Commitment = 'confirmed'
 const connection = new Connection('https://api.devnet.solana.com', commitment);
 
 // Define mint address
-const mint = new PublicKey("Erqa9eccJDSZgoX8dYMMupVwo276f7un1Wrs2mDgQ7C5")
+const mint = new PublicKey("BvFx8hM7CMAAKWsrZoWZyjhokD6SWo1DTEjo6S5tnAH4")
 
 // token metadata program
 const tokenMetaDataProgramId = new PublicKey("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s")
@@ -25,7 +25,6 @@ const [metadataPDA, _bump] = PublicKey.findProgramAddressSync(metadataSeeds, tok
 
 (async () => {
     try {
-        const [metadataPDA] = PublicKey.findProgramAddressSync(metadataSeeds, tokenMetaDataProgramId)
         const transaction = new Transaction().add(
             createCreateMetadataAccountV3Instruction({
                 metadata: metadataPDA,
@@ -38,7 +37,7 @@ const [metadataPDA, _bump] = PublicKey.findProgramAddressSync(metadataSeeds, tok
                     data: {
                         name: 'Jaykes Coin',
                         symbol: 'JAC',
-                        uri: '',
+                        uri: 'https://raw.githubusercontent.com/krk-finance/cdn.krk.finance/main/img/misc/metadata.json',
                         sellerFeeBasisPoints: 0,
                         creators: [{ address: keypair.publicKey, verified: true, share: 100 }],
                         collection: null,

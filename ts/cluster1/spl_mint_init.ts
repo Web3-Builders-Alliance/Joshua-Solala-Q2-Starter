@@ -9,8 +9,10 @@ const connection = new Connection('https://api.devnet.solana.com', commitment);
 
 (async () => {
     try {
-        const mint = await createMint(connection, keypair, keypair.publicKey, null, 6)
-        console.log("new mint created, ", mint)
+        const mint = await createMint(connection, keypair, keypair.publicKey, keypair.publicKey, 6)
+        console.log( 
+            `Token Mint: https://explorer.solana.com/address/${mint}?cluster=devnet`
+          );
     } catch (error) {
         console.log(error)
     }
